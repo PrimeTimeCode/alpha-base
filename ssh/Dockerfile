@@ -8,7 +8,9 @@ FROM phusion/baseimage:0.9.17
 CMD ["/sbin/my_init"]
 
 RUN addgroup --gid 999 alpha && \
-    adduser --group alpha,sudo --shell /bin/bash --uid 999 alpha
+    adduser --group alpha --shell /bin/bash --uid 999 alpha
+
+RIN usermod -a -G alpha,sudo alpha
 
 RUN apt-get update
 RUN apt-get -y upgrade
