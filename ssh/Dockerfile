@@ -7,8 +7,8 @@ FROM phusion/baseimage:0.9.17
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-RUN addgroup -gid 999 alpha && \
-    adduser -D -group alpha -shell /bin/bash -uid 999 alpha
+RUN addgroup --gid 999 alpha && \
+    adduser --group alpha,sudo --shell /bin/bash --uid 999 alpha
 
 RUN apt-get update
 RUN apt-get -y upgrade
